@@ -13,7 +13,7 @@ GuentherPi is a friendly slack chat bot which can be run on a raspberry pi to le
 2. Copy the example sounds file and add some own triggers and sound files
 3. Install the requirements
   * `pip install -r requirements.txt`
-4. Start Guenther and pass the slack api token `GUENTHER_SLACK_API_TOKEN=<token> python run.py`
+4. Start GuentherPi and pass the slack api token `GUENTHER_SLACK_API_TOKEN=<token> python run.py`
 5. In your slack team type `@guenther play trololol`
 
 For "production" ( ͡° ͜ʖ ͡°) use the easiest way is to start it in a screen session.
@@ -22,7 +22,7 @@ For "production" ( ͡° ͜ʖ ͡°) use the easiest way is to start it in a scree
 
 Commands are extracted from the messages you send to GuentherPi, so `@guenther which sounds do you have?` will also trigger the `sounds` command.
 
-### `sounds`
+### `@guenther sounds`
 
 Posts a list of all available trigger commands to the channel.
 
