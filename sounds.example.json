@@ -1,6 +1,6 @@
 [
     {
         "trigger": "trololol",
-        "sound": "/home/user/trololol.mp3"
+        "sound": "/home/pi/trololol.wav"
     }
 ]
