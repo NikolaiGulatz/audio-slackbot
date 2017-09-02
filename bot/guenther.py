@@ -1,3 +1,8 @@
+"""
+Guenther is a friendly slack chat bot which can be run on a raspberry pi to play certain sounds upon writing certain
+trigger words to him. It is particulary useful for raising the level of fun in the office or annoy your co-workers.
+"""
+
 import logging
 import json
 import re
@@ -8,10 +13,8 @@ from bot.jukebox import Jukebox
 
 class Guenther:
     """
-    Guenther is a friendly slack chat bot which can be run on a raspberry pi to play certain sounds upon writing certain
-    trigger words to him. It is particulary useful for raising the level of fun in the office or annoy your co-workers.
+    Bot class for reading the RTM stream and handling messages to the bot.
     """
-
     INTERNAL_TRIGGERS = {
         'sounds': 'list_sounds'
     }
@@ -20,8 +23,7 @@ class Guenther:
         self.logger = self.get_logger()
         self.client = self.get_client(api_token)
         self.user_id = self.get_user_id()
-        self.locked = False
-        self.sounds = Jukebox()
+        self.jukebox = Jukebox()
 
     @staticmethod
     def get_client(api_token):
@@ -44,14 +46,10 @@ class Guenther:
 
         return logger
 
-    @staticmethod
-    def play_sound(sound):
-        """
-        Play a sound file
-        """
-        playsound(sound)
-
     def get_user_id(self):
+        """
+        Connect to the API and get the user id of the bot user
+        """
         user_list = self.client.api_call('users.list')
 
         if not user_list.get('ok'):
@@ -66,7 +64,7 @@ class Guenther:
 
     def run(self):
         """
-        Start listening to messages
+        Main loop for reading the RTM events
         """
         if self.client.rtm_connect():
             self.logger.info('Connected to RTM')
@@ -74,7 +72,7 @@ class Guenther:
             while True:
                 for event in self.client.rtm_read():
                     if 'text' in event and event['text'].startswith("<@%s>" % self.user_id):
-                        self.logger.info('Message received: {}'.format(json.dumps(event, indent=2)))
+                        self.logger.info('Message received: %s', json.dumps(event, indent=2))
                         self.handle_event(event)
 
     def handle_event(self, event):
@@ -105,28 +103,28 @@ class Guenther:
         """
         Handles sound triggers
         """
-        sound = self.sounds.get_sound(token)
+        sound = self.jukebox.get_sound(token)
 
-        if sound:
-            self.logger.info('Playing sound {} for trigger {}'.format(sound, token))
+        if not sound:
+            return False
 
-            self.client.api_call(
-                'chat.postMessage',
-                channel=event['channel'],
-                text=':musical_score:',
-                as_user=True
-            )
+        self.logger.info('Playing sound %s for trigger %s', sound, token)
 
-            self.play_sound(sound)
-            return True
+        self.client.api_call(
+            'chat.postMessage',
+            channel=event['channel'],
+            text=':musical_score:',
+            as_user=True
+        )
 
-        return False
+        playsound(sound)
+        return True
 
     def list_sounds(self, event):
         """
         Post a list of available triggers
         """
-        sounds = self.sounds.get_sounds()
+        sounds = self.jukebox.get_sounds()
 
         self.client.api_call(
             'chat.postMessage',

@@ -1,3 +1,7 @@
+"""
+Guenthers jukebox
+"""
+
 import json
 
 from os import path
