@@ -1,6 +1,6 @@
 import os
 
-from guenther import Guenther
+from bot.guenther import Guenther
 
 if __name__ == '__main__':
     API_TOKEN = os.environ['GUENTHER_SLACK_API_TOKEN']

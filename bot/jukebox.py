@@ -2,7 +2,7 @@ import json
 
 from os import path
 
-class Sounds:
+class Jukebox:
     """
     Manages sounds by keeping a list of dictionaries containing trigger words and sound file paths in sync with the
     sounds.json file.

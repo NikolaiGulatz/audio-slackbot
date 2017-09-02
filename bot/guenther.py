@@ -4,7 +4,7 @@ import re
 
 from slackclient import SlackClient
 from playsound import playsound
-from sounds import Sounds
+from bot.jukebox import Jukebox
 
 class Guenther:
     """
@@ -21,7 +21,7 @@ class Guenther:
         self.client = self.get_client(api_token)
         self.user_id = self.get_user_id()
         self.locked = False
-        self.sounds = Sounds()
+        self.sounds = Jukebox()
 
     @staticmethod
     def get_client(api_token):
