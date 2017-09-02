@@ -1,0 +1,4 @@
+/venv
+/sounds.json
+/__pycache__
+*.pyc
