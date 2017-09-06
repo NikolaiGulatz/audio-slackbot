@@ -9,7 +9,7 @@ GuentherPi is a friendly slack chat bot which can be run on a raspberry pi to le
 
 ## Installation
 
-1. Create a bot user for you slack team
+1. Create a bot user named "guenther" for you slack team named
 2. Copy the example sounds file and add some own triggers and sound files
 3. Install the requirements
   * `pip install -r requirements.txt`

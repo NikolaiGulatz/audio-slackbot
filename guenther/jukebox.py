@@ -11,7 +11,7 @@ class Jukebox:
     Manages sounds by keeping a list of dictionaries containing trigger words and sound file paths in sync with the
     sounds.json file.
     """
-    SOUNDS_FILE = path.join(path.dirname(__file__), 'sounds.json')
+    SOUNDS_FILE = path.join(path.dirname(__file__), '../sounds.json')
 
     def __init__(self):
         self.sounds = self.load_sounds()

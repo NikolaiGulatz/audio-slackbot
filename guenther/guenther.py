@@ -9,7 +9,7 @@ import re
 
 from slackclient import SlackClient
 from playsound import playsound
-from bot.jukebox import Jukebox
+from guenther.jukebox import Jukebox
 
 class Guenther:
     """
@@ -18,6 +18,8 @@ class Guenther:
     INTERNAL_TRIGGERS = {
         'sounds': 'list_sounds'
     }
+
+    BOT_NAME = 'guenther'
 
     def __init__(self, api_token=None):
         self.logger = self.get_logger()
@@ -56,7 +58,7 @@ class Guenther:
             raise RuntimeError('Could not load user list: %s' % user_list.get('error'))
 
         for user in user_list.get('members'):
-            if user.get('name') == 'guenther':
+            if user.get('name') == self.BOT_NAME:
                 self.logger.info('Bot user id is ' + user.get('id'))
                 return user.get('id')
 
