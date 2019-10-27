@@ -7,17 +7,17 @@ it on a RaspberryPi, connect some speakers and have fun.
 
 ## Requirements
 
-1. python ^3.6
+1. `python ^3.6`
 
 ## Quickstart
 
 1. Install the package:
    * `$ pip install --user --upgrade audio-slackbot`
 2. Set up the Slack bot:
-   * Create a new Slack bot in your worksapce settings
+   * Create a new Slack bot in your workspace settings
    * Export the API token to your environment: `$ export SLACK_API_TOKEN="xoxb-2349..."`
    * Invite the bot to some Slack channels in your workspace
-3. Create a configuration file with the following format:
+3. Create a configuration file:
 
 ```yaml
 # sounds.yaml
@@ -29,6 +29,9 @@ triggers:
 
 4. Start the bot:
    * `$ audio_slackbot --config /home/pi/sounds.yaml`
+
+Now, when any message in any channel the bot is present contains "trololol" it will
+try to play the sound file "/home/pi/sounds/trololol.wav".
 
 ## macOS
 
