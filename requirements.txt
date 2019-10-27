@@ -1,9 +1,0 @@
-certifi==2017.7.27.1
-chardet==3.0.4
-idna==2.6
-playsound==1.2.2
-requests==2.18.4
-six==1.10.0
-slackclient==1.0.9
-urllib3==1.24.2
-websocket-client==0.44.0

@@ -1,0 +1,4 @@
+---
+triggers:
+  - trigger: "test"
+    sound: "/home/pi/trololol.mp3"
