@@ -1,6 +1,6 @@
 # audio-slackbot
 
-[![Build Status](https://travis-ci.org/NikolaiGulatz/audio-slackbot.svg?branch=master)](https://travis-ci.org/NikolaiGulatz/audio-slackbot) [![codecov](https://codecov.io/gh/NikolaiGulatz/audio-slackbot/branch/master/graph/badge.svg)](https://codecov.io/gh/NikolaiGulatz/audio-slackbot)
+[![Build Status](https://travis-ci.org/NikolaiGulatz/audio-slackbot.svg?branch=master)](https://travis-ci.org/NikolaiGulatz/audio-slackbot) [![codecov](https://codecov.io/gh/NikolaiGulatz/audio-slackbot/branch/master/graph/badge.svg)](https://codecov.io/gh/NikolaiGulatz/audio-slackbot) [![PyPI version](https://badge.fury.io/py/audio-slackbot.svg)](https://badge.fury.io/py/audio-slackbot)
 
 A Slack bot which plays sounds from the filesystem upon certain triggers. Install and configure
 it on a RaspberryPi, connect some speakers and have fun.

@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "A slack bot which plays sounds from the filesystem upon certain triggers."
 authors = ["Nikolai Gulatz <nikolai.gulatz@posteo.de>"]
 license = "MIT"
+homepage = "https://github.com/NikolaiGulatz/audio-slackbot"
 
 [tool.poetry.dependencies]
 python = "^3.6"
